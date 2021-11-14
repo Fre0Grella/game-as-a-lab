@@ -1,2 +1,7 @@
-# game-as-a-lab 2019
-Sources about "Game As a Lab" initiative - Cesena Campus, UNIBO
+# game-as-a-lab 
+
+Sources about "Game As a Lab" initiative 
+
+In collaboration with S.P.R.I.T.e student assoc. 
+
+Cesena Campus, UNIBO
