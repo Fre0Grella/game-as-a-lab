@@ -8,6 +8,7 @@ public class MosquitoAIInputComponent implements InputComponent {
 
 	private long lastChoiceTime;
 	private Random rand;
+	private static final long DECISION_PERSISTANCE_TIME = 50;
 	
 	public MosquitoAIInputComponent(){
 		rand = new Random(System.currentTimeMillis());
@@ -36,6 +37,6 @@ public class MosquitoAIInputComponent implements InputComponent {
 	}
 
 	private boolean isTimeToChoose(){
-		return System.currentTimeMillis() - lastChoiceTime > 10;
+		return System.currentTimeMillis() - lastChoiceTime > DECISION_PERSISTANCE_TIME;
 	}
 }

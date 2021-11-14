@@ -24,23 +24,23 @@ public class GameEngine {
 	}
 	
 	public void mainLoop(){
-		long lastTime = System.currentTimeMillis();
+		long previousCycleStartTime = System.currentTimeMillis();
 		while(true){
-			long current = System.currentTimeMillis();
-			int elapsed = (int)(current - lastTime);
+			long currentCycleStartTime = System.currentTimeMillis();
+			long elapsed = currentCycleStartTime - previousCycleStartTime;
 			processInput();
 			updateGame(elapsed);
 			render();
-			waitForNextFrame(current);
-			lastTime = current;
+			waitForNextFrame(currentCycleStartTime);
+			previousCycleStartTime = currentCycleStartTime;
 		}
 	}
 
-	protected void waitForNextFrame(long current){
-		long dt = System.currentTimeMillis() - current;
+	protected void waitForNextFrame(long cycleStartTime){
+		long dt = System.currentTimeMillis() - cycleStartTime;
 		if (dt < period){
 			try {
-				Thread.sleep(period-dt);
+				Thread.sleep(period - dt);
 			} catch (Exception ex){}
 		}
 	}
@@ -48,7 +48,7 @@ public class GameEngine {
 	protected void processInput(){
 	}
 	
-	protected void updateGame(int elapsed){
+	protected void updateGame(long elapsed){
 		world.updateState(elapsed);
 	}
 	

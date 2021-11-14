@@ -35,7 +35,7 @@ public class GameState {
 		return score;
 	}
 	
-	public void update(int dt){
+	public void update(long dt){
 		world.updateState(dt);
 	}
 }

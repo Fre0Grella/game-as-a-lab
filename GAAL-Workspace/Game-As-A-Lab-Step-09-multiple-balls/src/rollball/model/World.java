@@ -42,7 +42,7 @@ public class World {
 		picks.remove(obj);
 	}
 	
-	public void updateState(int dt){
+	public void updateState(long dt){
 		for (GameObject ball: balls.values()) {
 			ball.updatePhysics(dt, this);
 		}

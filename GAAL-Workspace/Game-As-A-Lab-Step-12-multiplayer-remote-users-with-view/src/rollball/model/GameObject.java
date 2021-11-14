@@ -75,7 +75,7 @@ public class GameObject {
 		input.update(this);
 	}
 
-	public void updatePhysics(int dt, World w){
+	public void updatePhysics(long dt, World w){
 		phys.update(dt, this, w);
 	}
 	

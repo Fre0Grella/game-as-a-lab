@@ -32,7 +32,7 @@ public class World {
 		picks.remove(obj);
 	}
 	
-	public void updateState(int dt){
+	public void updateState(long dt){
 		picks.stream().forEach(obj -> { obj.updateState(dt);});
 		ball.updateState(dt);		
 		checkBoundaries();

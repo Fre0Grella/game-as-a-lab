@@ -20,7 +20,7 @@ public class World  {
 		picks.add(obj);
 	}
 	
-	public void updateState(int dt){
+	public void updateState(long dt){
 		picks.stream().forEach(obj -> { obj.updateState(dt);});
 		ball.updateState(dt);
 	}

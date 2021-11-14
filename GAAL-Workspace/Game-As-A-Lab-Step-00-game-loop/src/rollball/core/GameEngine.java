@@ -10,22 +10,24 @@ import java.util.logging.*;
  */
 public class GameEngine  {
 
-	private long period = 1000; /* 20 ms = 50 frame al secondo */
+	private long period = 20; /* 20 ms = 50 frame al secondo */
+	
 	private Logger logger = Logger.getLogger("GameEngine");
 	
 	public GameEngine(){
 	}
 	
 	public void mainLoop(){
-		long lastTime = System.currentTimeMillis();
+		long previousCycleStartTime = System.currentTimeMillis();
 		while(true){
-			long current = System.currentTimeMillis();
-			int elapsed = (int)(current - lastTime);
+			long currentCycleStartTime = System.currentTimeMillis();
+			long elapsed = currentCycleStartTime - previousCycleStartTime;
 			processInput();
+			/* move on the game state of elapsed time */
 			updateGame(elapsed);
 			render();
-			waitForNextFrame(current);
-			lastTime = current;
+			waitForNextFrame(currentCycleStartTime);
+			previousCycleStartTime = currentCycleStartTime;
 		}
 	}
 
@@ -34,23 +36,34 @@ public class GameEngine  {
 	 * 
 	 * @param current
 	 */
-	protected void waitForNextFrame(long current){
-		long dt = System.currentTimeMillis() - current;
+	protected void waitForNextFrame(long cycleStartTime){
+		long dt = System.currentTimeMillis() - cycleStartTime;
 		if (dt < period){
 			try {
-				Thread.sleep(period-dt);
+				Thread.sleep(period - dt);
 			} catch (Exception ex){}
 		}
 	}
 	
+	/**
+	 * Processing the input of the game got in a cycle.
+	 */
 	protected void processInput(){
 		logger.log(Level.INFO, "..process input..");
 	}
 	
-	protected void updateGame(int elapsed){
-		logger.log(Level.INFO, "..update game: elapsed "+elapsed);
+	/**
+	 * Update the state of the game, given the amount of time elapsed wrt previous cycle.
+	 *  
+	 * @param elapsed
+	 */
+	protected void updateGame(long elapsed){
+		logger.log(Level.INFO, "..update game: elapsed " + elapsed);
 	}
 	
+	/**
+	 * Rendering of the game in a cycle.
+	 */
 	protected void render(){
 		logger.log(Level.INFO, "..render..");
 	}

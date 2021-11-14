@@ -7,7 +7,7 @@ import rollball.model.*;
 
 public class BallPhysicsComponent extends PhysicsComponent {
 
-	public void update(int dt, GameObject obj, World w) {
+	public void update(long dt, GameObject obj, World w) {
 		super.update(dt, obj, w);
 		//w.checkBoundaries(obj);
 		CircleBoundingBox bbox = (CircleBoundingBox) obj.getBBox();

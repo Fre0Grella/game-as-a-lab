@@ -22,7 +22,7 @@ public class GameObject {
 		this.vel = vel;
 	}
 	
-	public void updateState(int dt){
+	public void updateState(long dt){
 		this.pos = this.pos.sum(vel.mul(0.001*dt));
 	}
 	
