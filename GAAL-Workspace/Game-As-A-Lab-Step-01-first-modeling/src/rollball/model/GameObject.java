@@ -25,6 +25,10 @@ public class GameObject  {
 	public void setVel(V2d vel){
 		this.vel = vel;
 	}
+	/**
+	 * Update the state of the object 
+	 * @param dt module of the velocity
+	 */
 	
 	public void updateState(long dt){
 		this.pos = this.pos.sum(vel.mul(0.001*dt));

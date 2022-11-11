@@ -7,14 +7,18 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.Stroke;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.util.List;
 
-import javax.swing.*;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 import rollball.common.P2d;
-import rollball.model.*;
+import rollball.model.Ball;
+import rollball.model.GameObject;
+import rollball.model.PickUpObj;
+import rollball.model.World;
 
 /**
  * Semplice 
@@ -32,18 +36,27 @@ public class Scene  {
 		frame.setSize(w,h);
 		frame.setMinimumSize(new Dimension(w,h));
 		frame.setResizable(false);
-		// frame.setUndecorated(true); // Remove title bar
+		frame.setUndecorated(true); // Remove title bar
 		this.scene = scene;
 		panel = new ScenePanel(w,h);
 		frame.getContentPane().add(panel);
-		frame.addWindowListener(new WindowAdapter(){
+		frame.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				if (e.getKeyChar() == KeyEvent.VK_ESCAPE) {
+					System.exit(-1);
+				}
+			}
+
+		});
+		/*frame.addWindowListener(new WindowAdapter(){
 			public void windowClosing(WindowEvent ev){
 				System.exit(-1);
 			}
 			public void windowClosed(WindowEvent ev){
 				System.exit(-1);
 			}
-		});
+		});*/
 		frame.pack();
 		frame.setVisible(true);
 	}

@@ -1,10 +1,7 @@
 package rollball.model;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-
-import rollball.common.*;
 
 public class World  {
 	

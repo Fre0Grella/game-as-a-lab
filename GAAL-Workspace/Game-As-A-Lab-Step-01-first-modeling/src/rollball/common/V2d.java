@@ -31,6 +31,9 @@ public class V2d implements java.io.Serializable {
     public double module(){
         return (double)Math.sqrt(x*x+y*y);
     }
+    /**
+     * @return vector with same direction and module = 1
+     */
 
     public V2d getNormalized(){
         double module=(double)Math.sqrt(x*x+y*y);
