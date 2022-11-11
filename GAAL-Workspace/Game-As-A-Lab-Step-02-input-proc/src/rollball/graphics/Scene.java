@@ -16,10 +16,8 @@ import javax.swing.JPanel;
 
 import rollball.common.P2d;
 import rollball.input.Controller;
-import rollball.input.MoveDown;
-import rollball.input.MoveLeft;
-import rollball.input.MoveRight;
-import rollball.input.MoveUp;
+import rollball.input.Direction;
+import rollball.input.Move;
 import rollball.model.Ball;
 import rollball.model.GameObject;
 import rollball.model.PickUpObj;
@@ -124,13 +122,13 @@ public class Scene  {
 		@Override
 		public void keyPressed(KeyEvent e) {
 			if (e.getKeyCode() == KeyEvent.VK_W){
-				controller.notifyCommand(new MoveUp());
+				controller.notifyCommand(new Move(Direction.UP));
 			} else if (e.getKeyCode() == KeyEvent.VK_S){
-				controller.notifyCommand(new MoveDown());
+				controller.notifyCommand(new Move(Direction.DOWN));
 			} else if (e.getKeyCode() == KeyEvent.VK_D){
-				controller.notifyCommand(new MoveRight());	     		
+				controller.notifyCommand(new Move(Direction.RIGHT));	     		
 			} else if (e.getKeyCode() == KeyEvent.VK_A){
-				controller.notifyCommand(new MoveLeft());	     		
+				controller.notifyCommand(new Move(Direction.LEFT));	     		
 			} else if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
 				System.exit(0);
 			}
