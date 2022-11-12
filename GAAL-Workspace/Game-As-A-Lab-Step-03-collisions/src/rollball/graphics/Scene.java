@@ -35,7 +35,7 @@ public class Scene  {
     	frame.setSize(w,h);
     	frame.setMinimumSize(new Dimension(w,h));
         frame.setResizable(false);
-        // frame.setUndecorated(true); // Remove title bar
+        frame.setUndecorated(true); // Remove title bar
         this.scene = scene;
         panel = new ScenePanel(w,h, width, height);
         frame.getContentPane().add(panel);
@@ -147,15 +147,17 @@ public class Scene  {
 
     	@Override
 		public void keyPressed(KeyEvent e) {
-	     	if (e.getKeyCode() == 38){
-	     		controller.notifyCommand(new MoveUp());
-	     	} else if (e.getKeyCode() == 40){
-	     		controller.notifyCommand(new MoveDown());
-	     	} else if (e.getKeyCode() == 39){
-	     		controller.notifyCommand(new MoveRight());	     		
-	     	} else if (e.getKeyCode() == 37){
-	     		controller.notifyCommand(new MoveLeft());	     		
-	     	}
+			if (e.getKeyCode() == KeyEvent.VK_W){
+				controller.notifyCommand(new Move(Direction.UP));
+			} else if (e.getKeyCode() == KeyEvent.VK_S){
+				controller.notifyCommand(new Move(Direction.DOWN));
+			} else if (e.getKeyCode() == KeyEvent.VK_D){
+				controller.notifyCommand(new Move(Direction.RIGHT));	     		
+			} else if (e.getKeyCode() == KeyEvent.VK_A){
+				controller.notifyCommand(new Move(Direction.LEFT));	     		
+			} else if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+				System.exit(0);
+			}
 		}
 
 		@Override

@@ -39,7 +39,7 @@ public class World  {
 		P2d ul = mainBBox.getULCorner();
 		P2d br = mainBBox.getBRCorner();
 		double r = ball.getRadius();
-		if (pos.y + r> ul.y){
+		if (pos.y + r > ul.y){
 			ball.setPos(new P2d(pos.x, ul.y - r));
 			ball.flipVelOnY();
 		} else if (pos.y - r < br.y){
@@ -59,12 +59,12 @@ public class World  {
 		P2d ballpos = ball.getCurrentPos();
 		double radius = ball.getRadius();
 		PickUpObj found = null;
-		for (PickUpObj obj: picks){
+		for (PickUpObj obj: picks){ 
 			if (obj.getBBox().isCollidingWith(ballpos,radius)){
-				found = obj;
+				found = obj; //part of the removal procedure
 				break;
 			}
-		}
+		} //remove the object hitten
 		if (found != null){
 			picks.remove(found);
 		}
