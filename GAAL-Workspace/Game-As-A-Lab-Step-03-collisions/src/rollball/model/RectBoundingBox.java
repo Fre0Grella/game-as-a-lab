@@ -21,6 +21,6 @@ public class RectBoundingBox implements BoundingBox {
 	
 	//check if the ball is in beetwen the obj perimeter
 	public boolean isCollidingWith(P2d p, double radius){
-		return (p.y + radius > p1.y && p.y + radius < p0.y && p.x + radius > p0.x && p.x + radius < p1.x);
+		return (p.y + radius > p1.y && p.y - radius < p0.y && p.x + radius > p0.x && p.x - radius < p1.x);
 	}
 }
