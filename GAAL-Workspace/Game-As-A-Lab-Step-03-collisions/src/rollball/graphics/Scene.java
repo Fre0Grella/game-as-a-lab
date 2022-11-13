@@ -3,25 +3,28 @@ package rollball.graphics;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.KeyEventDispatcher;
 import java.awt.RenderingHints;
 import java.awt.Stroke;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-import javax.swing.*;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 import rollball.common.P2d;
-import rollball.input.*;
-import rollball.model.*;
+import rollball.input.Controller;
+import rollball.input.Direction;
+import rollball.input.Move;
+import rollball.model.Ball;
+import rollball.model.GameObject;
+import rollball.model.PickUpObj;
+import rollball.model.RectBoundingBox;
+import rollball.model.World;
 
 public class Scene  {
     

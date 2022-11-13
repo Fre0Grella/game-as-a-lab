@@ -1,14 +1,17 @@
 package rollball.core;
 
-import java.util.Arrays;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
-import rollball.model.*;
 import rollball.common.P2d;
 import rollball.common.V2d;
-import rollball.graphics.*;
-import rollball.input.*;
+import rollball.graphics.Scene;
+import rollball.input.Command;
+import rollball.input.Controller;
+import rollball.model.Ball;
+import rollball.model.PickUpObj;
+import rollball.model.RectBoundingBox;
+import rollball.model.World;
 
 public class GameEngine implements Controller {
 
